@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حقيبة أدوات المربي الرقمي | التربية غير المنهجية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #1B3A6B;
+  --blue:   #2E6DA4;
+  --blueL:  #D6E4F0;
+  --teal:   #1A7A6E;
+  --tealL:  #C8E6E3;
+  --gold:   #C49A22;
+  --goldL:  #FFF3CC;
+  --purple: #6B21A8;
+  --purpleL:#F3E8FF;
+  --rose:   #BE185D;
+  --roseL:  #FCE7F3;
+  --green:  #15803D;
+  --greenL: #DCFCE7;
+  --white:  #FFFFFF;
+  --offW:   #F7F9FC;
+  --gray:   #64748B;
+  --grayL:  #F1F5F9;
+  --dark:   #1E293B;
+  --accent: #E84B37;
+  --r: 14px;
+  --sh: 0 4px 24px rgba(27,58,107,0.10);
+  --shL: 0 8px 40px rgba(27,58,107,0.16);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Cairo','Tajawal',sans-serif; background:var(--offW); color:var(--dark); direction:rtl; }
+
+/* HEADER */
+.hdr { background:linear-gradient(135deg,#1B3A6B 0%,#1A7A6E 100%); padding:2.2rem 1.5rem 1.8rem; position:relative; overflow:hidden; }
+.hdr::before { content:''; position:absolute; top:-50px; left:-50px; width:220px; height:220px; background:rgba(196,154,34,.12); border-radius:50%; }
+.hdr::after  { content:''; position:absolute; bottom:-60px; right:5%; width:260px; height:260px; background:rgba(255,255,255,.05); border-radius:50%; }
+.hdr-inner { max-width:900px; margin:0 auto; position:relative; z-index:1; }
+.hdr-badge { display:inline-block; background:rgba(196,154,34,.25); color:#FFE082; border:1px solid rgba(196,154,34,.4); border-radius:30px; padding:.28rem .9rem; font-size:.8rem; font-weight:700; margin-bottom:.7rem; }
+.hdr h1 { color:#fff; font-size:1.75rem; font-weight:900; margin-bottom:.35rem; }
+.hdr p  { color:rgba(255,255,255,.75); font-size:.92rem; margin-bottom:1.1rem; }
+.hdr-chips { display:flex; flex-wrap:wrap; gap:.6rem; }
+.chip { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); color:rgba(255,255,255,.9); border-radius:20px; padding:.22rem .75rem; font-size:.78rem; font-weight:600; }
+
+/* TABS */
+.tabs-wrap { background:var(--white); border-bottom:2px solid var(--blueL); position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(27,58,107,.07); }
+.tabs { max-width:900px; margin:0 auto; display:flex; overflow-x:auto; scrollbar-width:none; }
+.tabs::-webkit-scrollbar { display:none; }
+.tab-btn { flex-shrink:0; padding:.85rem 1.1rem; border:none; background:none; cursor:pointer; font-family:'Cairo',sans-serif; font-size:.82rem; font-weight:700; color:var(--gray); border-bottom:3px solid transparent; transition:all .2s; white-space:nowrap; }
+.tab-btn:hover { color:var(--navy); }
+.tab-btn.active { color:var(--navy); border-bottom-color:var(--gold); background:rgba(196,154,34,.05); }
+
+/* CONTENT */
+.wrap { max-width:900px; margin:0 auto; padding:1.8rem 1.1rem 4rem; }
+.panel { display:none; animation:up .3s ease; }
+.panel.on { display:block; }
+@keyframes up { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+
+/* SEC HEADER */
+.sec { display:flex; align-items:center; gap:.6rem; margin:0 0 1.1rem; }
+.sec h2 { font-size:1.1rem; font-weight:800; color:var(--navy); white-space:nowrap; }
+.sec .ln { flex:1; height:2px; background:linear-gradient(to left,transparent,var(--blueL)); }
+
+/* CARD */
+.card { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); padding:1.3rem; margin-bottom:1.1rem; }
+.card-t { font-size:.97rem; font-weight:700; color:var(--navy); margin-bottom:.6rem; display:flex; align-items:center; gap:.5rem; }
+.ico { width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:.9rem; flex-shrink:0; }
+
+/* ALERT */
+.alert { display:flex; gap:.7rem; background:var(--goldL); border:1px solid rgba(196,154,34,.3); border-right:4px solid var(--gold); border-radius:var(--r); padding:.85rem 1rem; margin-bottom:1.1rem; font-size:.87rem; line-height:1.7; }
+
+/* BTN */
+.btn { display:inline-flex; align-items:center; gap:.4rem; border:none; border-radius:10px; padding:.55rem 1.2rem; font-family:'Cairo',sans-serif; font-size:.87rem; font-weight:700; cursor:pointer; transition:all .2s; }
+.btn-navy  { background:var(--navy); color:#fff; }
+.btn-navy:hover  { background:#254d8f; }
+.btn-teal  { background:var(--teal); color:#fff; }
+.btn-teal:hover  { background:#156058; }
+.btn-gold  { background:var(--gold); color:var(--dark); }
+.btn-gold:hover  { opacity:.85; }
+.btn-out   { background:none; border:2px solid var(--navy); color:var(--navy); }
+.btn-out:hover   { background:var(--blueL); }
+.btn-sm { padding:.35rem .85rem; font-size:.8rem; }
+.btn-danger { background:var(--accent); color:#fff; }
+.btn-danger:hover { opacity:.85; }
+
+/* GRID 2 */
+.g2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.1rem; }
+@media(max-width:580px){.g2{grid-template-columns:1fr}}
+
+/* ROLE CARDS */
+.role-deck { display:grid; grid-template-columns:repeat(auto-fill,minmax(195px,1fr)); gap:1rem; margin-bottom:1.4rem; }
+.role-card { border-radius:var(--r); overflow:hidden; box-shadow:var(--sh); cursor:pointer; transition:transform .2s,box-shadow .2s; user-select:none; }
+.role-card:hover { transform:translateY(-3px); box-shadow:var(--shL); }
+.role-front, .role-back { padding:1.2rem; }
+.role-front { position:relative; min-height:140px; display:flex; flex-direction:column; justify-content:space-between; }
+.role-emoji { font-size:2.4rem; }
+.role-name { font-size:1rem; font-weight:800; color:#fff; margin-top:.5rem; }
+.role-subtitle { font-size:.78rem; color:rgba(255,255,255,.75); margin-top:.2rem; }
+.role-back { background:var(--white); border:2px solid; display:none; }
+.role-back.show { display:block; }
+.role-front.hide { display:none; }
+.role-back-title { font-size:.95rem; font-weight:700; margin-bottom:.5rem; }
+.role-back-body  { font-size:.83rem; line-height:1.75; color:#374151; }
+.role-mission { margin-top:.6rem; background:var(--grayL); border-radius:8px; padding:.45rem .7rem; font-size:.8rem; color:var(--gray); }
+.role-flip-hint { font-size:.72rem; color:rgba(255,255,255,.5); text-align:center; margin-top:.5rem; }
+.role-why { margin-top:.6rem; border-radius:8px; padding:.5rem .7rem; font-size:.8rem; line-height:1.7; }
+.role-example-box { margin-top:.55rem; border-radius:8px; padding:.5rem .7rem; font-size:.79rem; line-height:1.65; }
+.role-example-title { font-weight:700; font-size:.79rem; margin-bottom:.35rem; }
+.role-ex-item { display:flex; gap:.35rem; margin-bottom:.28rem; }
+.role-ex-item:last-child { margin-bottom:0; }
+.role-ex-num { font-weight:800; flex-shrink:0; }
+.role-back { background:var(--white); border:2px solid; display:none; overflow-y:auto; max-height:500px; }
+.role-tabs-inner { display:flex; border-bottom:1.5px solid #E5E7EB; margin:-1.2rem -1.2rem .8rem; }
+.role-itab { flex:1; border:none; background:none; cursor:pointer; font-family:'Cairo',sans-serif; font-size:.75rem; font-weight:700; color:var(--gray); padding:.5rem .3rem; border-bottom:2.5px solid transparent; margin-bottom:-1.5px; transition:all .15s; }
+.role-itab.active { color:var(--navy); border-bottom-color:var(--gold); background:rgba(196,154,34,.05); }
+.role-ipanel { display:none; }
+.role-ipanel.on { display:block; }
+
+/* SHUFFLE BTN */
+.shuffle-row { display:flex; align-items:center; gap:.8rem; margin-bottom:1.2rem; flex-wrap:wrap; }
+.assigned-name { font-size:.9rem; font-weight:700; color:var(--navy); }
+
+/* PEER FEEDBACK */
+.pf-form { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); padding:1.4rem; margin-bottom:1.1rem; }
+.pf-label { font-size:.88rem; font-weight:700; color:var(--dark); margin-bottom:.4rem; display:block; }
+.pf-input { width:100%; border:1.5px solid #E5E7EB; border-radius:10px; padding:.65rem .9rem; font-family:'Cairo',sans-serif; font-size:.87rem; direction:rtl; outline:none; transition:border-color .2s; background:var(--offW); }
+.pf-input:focus { border-color:var(--blue); background:#fff; }
+textarea.pf-input { resize:vertical; min-height:75px; }
+.pf-row { margin-bottom:.9rem; }
+.pf-tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.4rem; }
+.pf-tag { background:var(--grayL); border:1px solid #E5E7EB; border-radius:20px; padding:.2rem .65rem; font-size:.76rem; font-weight:600; color:var(--gray); cursor:pointer; transition:all .15s; }
+.pf-tag:hover,.pf-tag.sel { background:var(--blueL); color:var(--navy); border-color:var(--blue); }
+.pf-preview { background:linear-gradient(135deg,var(--navy),var(--teal)); border-radius:var(--r); padding:1.2rem 1.4rem; color:#fff; margin-top:1rem; display:none; }
+.pf-preview.show { display:block; }
+.pf-preview h4 { font-size:.9rem; font-weight:700; margin-bottom:.7rem; color:#FFE082; }
+.pf-preview p  { font-size:.87rem; line-height:1.8; opacity:.92; }
+.pf-preview p strong { color:#FFE082; }
+
+/* JOURNAL */
+.journal-wrap { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); overflow:hidden; margin-bottom:1.2rem; }
+.journal-tabs { display:flex; border-bottom:2px solid var(--grayL); }
+.j-tab { flex:1; padding:.7rem; border:none; background:none; cursor:pointer; font-family:'Cairo',sans-serif; font-size:.82rem; font-weight:600; color:var(--gray); border-bottom:3px solid transparent; margin-bottom:-2px; transition:all .2s; }
+.j-tab.active { color:var(--navy); border-bottom-color:var(--teal); background:rgba(26,122,110,.04); }
+.journal-body { padding:1.3rem; }
+.j-panel { display:none; }
+.j-panel.on { display:block; }
+.j-prompt { font-size:.88rem; font-weight:600; color:var(--navy); margin-bottom:.5rem; }
+.j-sub { font-size:.8rem; color:var(--gray); margin-bottom:.7rem; font-style:italic; }
+.j-field { margin-bottom:1rem; }
+.j-history { margin-top:1rem; }
+.j-entry { background:var(--grayL); border-radius:10px; padding:.8rem; margin-bottom:.6rem; border-right:3px solid var(--teal); }
+.j-entry-date { font-size:.75rem; color:var(--gray); margin-bottom:.3rem; }
+.j-entry-text { font-size:.85rem; line-height:1.7; }
+.j-empty { text-align:center; padding:1.5rem; color:var(--gray); font-size:.85rem; }
+
+/* OBSERVATION CARD */
+.obs-card { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); overflow:hidden; margin-bottom:1.2rem; }
+.obs-head { background:linear-gradient(135deg,var(--purple),#9333EA); padding:1rem 1.3rem; color:#fff; }
+.obs-head h3 { font-size:1rem; font-weight:700; }
+.obs-head p  { font-size:.8rem; opacity:.8; margin-top:.2rem; }
+.obs-body { padding:1.3rem; }
+.obs-section { margin-bottom:1.2rem; padding-bottom:1.2rem; border-bottom:1px solid var(--grayL); }
+.obs-section:last-child { border-bottom:none; margin-bottom:0; }
+.obs-title { font-size:.9rem; font-weight:700; color:var(--purple); margin-bottom:.7rem; display:flex; align-items:center; gap:.4rem; }
+.obs-grid { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+@media(max-width:500px){.obs-grid{grid-template-columns:1fr}}
+.obs-item label { font-size:.8rem; font-weight:600; color:var(--dark); display:block; margin-bottom:.3rem; }
+.obs-item input, .obs-item select { width:100%; border:1.5px solid #E5E7EB; border-radius:8px; padding:.5rem .7rem; font-family:'Cairo',sans-serif; font-size:.83rem; direction:rtl; outline:none; }
+.obs-item input:focus, .obs-item select:focus { border-color:var(--purple); }
+.tally-row { display:flex; align-items:center; gap:.6rem; margin-bottom:.5rem; }
+.tally-label { font-size:.82rem; color:var(--dark); min-width:130px; }
+.tally-btns { display:flex; gap:.3rem; }
+.tally-btn { width:28px; height:28px; border:none; border-radius:6px; background:var(--grayL); cursor:pointer; font-size:.85rem; font-weight:700; color:var(--gray); transition:all .15s; display:flex; align-items:center; justify-content:center; }
+.tally-btn:hover { background:var(--purpleL); color:var(--purple); }
+.tally-count { font-size:1rem; font-weight:800; color:var(--purple); min-width:24px; text-align:center; }
+.obs-print-row { display:flex; gap:.7rem; flex-wrap:wrap; margin-top:.8rem; }
+
+/* DASHBOARD */
+.dash-header { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-bottom:1.4rem; }
+@media(max-width:500px){.dash-header{grid-template-columns:1fr}}
+.dash-stat { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); padding:1.1rem; text-align:center; }
+.dash-num { font-size:2.2rem; font-weight:900; }
+.dash-lbl { font-size:.78rem; color:var(--gray); font-weight:600; margin-top:.2rem; }
+.dash-bar-wrap { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); padding:1.3rem; margin-bottom:1.1rem; }
+.dash-bar-title { font-size:.92rem; font-weight:700; color:var(--navy); margin-bottom:.9rem; }
+.dash-session { margin-bottom:1rem; }
+.ds-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:.35rem; }
+.ds-name { font-size:.87rem; font-weight:600; color:var(--dark); }
+.ds-pct  { font-size:.8rem; font-weight:700; }
+.ds-track { background:var(--grayL); border-radius:6px; height:10px; overflow:hidden; }
+.ds-fill  { height:100%; border-radius:6px; transition:width .8s ease; }
+.dash-tasks { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); padding:1.3rem; margin-bottom:1.1rem; }
+.dash-tasks h3 { font-size:.92rem; font-weight:700; color:var(--navy); margin-bottom:.9rem; }
+.task-item { display:flex; align-items:center; gap:.7rem; padding:.55rem 0; border-bottom:1px solid var(--grayL); }
+.task-item:last-child { border-bottom:none; }
+.task-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+.task-text { font-size:.85rem; flex:1; }
+.task-badge { font-size:.72rem; font-weight:700; padding:.15rem .55rem; border-radius:20px; }
+.dash-self { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); padding:1.3rem; margin-bottom:1.1rem; }
+.dash-self h3 { font-size:.92rem; font-weight:700; color:var(--navy); margin-bottom:.9rem; }
+.self-row { display:flex; align-items:center; gap:.6rem; margin-bottom:.6rem; }
+.self-label { font-size:.82rem; color:var(--dark); flex:1; }
+.self-stars { display:flex; gap:.2rem; }
+.s-star { font-size:1.1rem; color:#D1D5DB; cursor:pointer; transition:color .12s; }
+.s-star.on { color:var(--gold); }
+.dash-score { text-align:center; background:var(--blueL); border-radius:var(--r); padding:1rem; }
+.dash-score .big { font-size:2.8rem; font-weight:900; color:var(--navy); }
+.dash-score .lbl { font-size:.85rem; color:var(--navy); font-weight:600; margin-top:.2rem; }
+
+/* LESSON PLAN */
+.lp-form { background:var(--white); border-radius:var(--r); box-shadow:var(--sh); padding:1.4rem; margin-bottom:1.1rem; }
+.lp-section { margin-bottom:1.3rem; padding-bottom:1.3rem; border-bottom:1px solid var(--grayL); }
+.lp-section:last-child { border-bottom:none; margin-bottom:0; }
+.lp-title { font-size:.97rem; font-weight:700; color:var(--navy); margin-bottom:.8rem; display:flex; align-items:center; gap:.4rem; }
+.lp-grid { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
+@media(max-width:500px){.lp-grid{grid-template-columns:1fr}}
+.lp-field { margin-bottom:.7rem; }
+.lp-field label { font-size:.82rem; font-weight:600; color:var(--dark); display:block; margin-bottom:.3rem; }
+.lp-field input, .lp-field select, .lp-field textarea {
+  width:100%; border:1.5px solid #E5E7EB; border-radius:8px; padding:.55rem .8rem;
+  font-family:'Cairo',sans-serif; font-size:.85rem; direction:rtl; outline:none; transition:border-color .2s;
+}
+.lp-field input:focus,.lp-field select:focus,.lp-field textarea:focus { border-color:var(--blue); }
+.lp-field textarea { resize:vertical; min-height:65px; }
+.phases-table { width:100%; border-collapse:collapse; font-size:.83rem; }
+.phases-table th { background:var(--navy); color:#fff; padding:.55rem .7rem; text-align:right; font-weight:700; }
+.phases-table td { padding:.5rem .7rem; border:1px solid #E5E7EB; vertical-align:top; }
+.phases-table tr:nth-child(even) td { background:var(--grayL); }
+.ph-input { width:100%; border:none; background:transparent; font-family:'Cairo',sans-serif; font-size:.82rem; direction:rtl; outline:none; padding:.2rem; }
+.ph-input:focus { background:var(--blueL); border-radius:4px; }
+.lp-preview { background:linear-gradient(135deg,#1B3A6B,#1A7A6E); border-radius:var(--r); padding:1.3rem 1.5rem; color:#fff; margin-top:1.1rem; display:none; }
+.lp-preview.show { display:block; }
+.lp-preview h3 { font-size:1rem; font-weight:700; color:#FFE082; margin-bottom:.8rem; }
+.lp-preview-row { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:.4rem; }
+.lp-chip { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); color:#fff; border-radius:20px; padding:.18rem .65rem; font-size:.78rem; font-weight:600; }
+
+/* FOOTER */
+footer { text-align:center; padding:1.3rem; font-size:.8rem; color:var(--gray); border-top:1px solid var(--grayL); background:var(--white); }
+
+/* PRINT */
+@media print {
+  .hdr,.tabs-wrap,.obs-print-row { display:none!important; }
+  body { background:#fff; }
+  .obs-card { box-shadow:none; border:1px solid #ccc; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-inner">
+    <div class="hdr-badge">🎓 التربية غير المنهجية | كلية القاسمي</div>
+    <h1>حقيبة أدوات المربي الرقمي 🧰</h1>
+    <p>ست أدوات تفاعلية متكاملة لدعم الطالب في تصميم وتمرير وتقييم حصص Zoom</p>
+    <div class="hdr-chips">
+      <span class="chip">🃏 بطاقات الأدوار</span>
+      <span class="chip">🔄 التغذية الراجعة</span>
+      <span class="chip">📓 مجلة التعلم</span>
+      <span class="chip">👁️ بطاقة الملاحظة</span>
+      <span class="chip">📊 لوحة التقدم</span>
+      <span class="chip">📋 قالب الخطة</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="sw(this,'roles')">🃏 بطاقات الأدوار</button>
+    <button class="tab-btn" onclick="sw(this,'peer')">🔄 التغذية الراجعة</button>
+    <button class="tab-btn" onclick="sw(this,'journal')">📓 مجلة التعلم</button>
+    <button class="tab-btn" onclick="sw(this,'obs')">👁️ بطاقة الملاحظة</button>
+    <button class="tab-btn" onclick="sw(this,'dash')">📊 لوحة التقدم</button>
+    <button class="tab-btn" onclick="sw(this,'plan')">📋 قالب الخطة</button>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ══════════════════════════════════════════
+     TAB 1: ROLE CARDS
+══════════════════════════════════════════ -->
+<div id="p-roles" class="panel on">
+
+  <div class="sec"><h2>🃏 بطاقات الأدوار</h2><div class="ln"></div></div>
+
+  <div class="alert">
+    <span>💡</span>
+    <div>قبل كل لقاء، يسحب كل طالب دوراً خفياً ويؤديه طوال الحصة دون إعلانه. في الإغلاق، يكشف دوره ويناقش كيف أثّر على مشاركته. مستوحى من <strong>نظرية الأدوار الاجتماعية</strong> ونموذج CoI.</div>
+  </div>
+
+  <div class="shuffle-row">
+    <button class="btn btn-navy" onclick="shuffle()">🎲 سحب عشوائي للأدوار</button>
+    <button class="btn btn-out btn-sm" onclick="resetRoles()">↩ إعادة الضبط</button>
+    <span id="shuffle-msg" style="font-size:.83rem;color:var(--teal);font-weight:600;"></span>
+  </div>
+
+  <div class="role-deck" id="role-deck">
+    <!-- built by JS -->
+  </div>
+
+  <div class="card" style="border-right:4px solid var(--teal)">
+    <div class="card-t"><div class="ico" style="background:var(--tealL);color:var(--teal)">📌</div> تعليمات الاستخدام في الحصة</div>
+    <p style="font-size:.87rem;line-height:1.8;color:#374151">
+      <strong>١. قبل اللقاء:</strong> يقرأ كل طالب بطاقته سراً — اضغط على البطاقة لرؤية مهمتك التفصيلية.<br>
+      <strong>٢. أثناء اللقاء:</strong> نفِّذ مهمة دورك دون الإعلان عنه — الزملاء يخمّنون من هو في كل دور.<br>
+      <strong>٣. في الإغلاق:</strong> كل طالب يكشف دوره ويناقش: كيف أثّر هذا الدور على طريقة مشاركتي؟<br>
+      <strong>٤. سؤال التأمل:</strong> ما العلاقة بين الأدوار الاجتماعية في الحصة الرقمية وبناء المجتمع التعليمي؟
+    </p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 2: PEER FEEDBACK
+══════════════════════════════════════════ -->
+<div id="p-peer" class="panel">
+
+  <div class="sec"><h2>🔄 بروتوكول التغذية الراجعة بين الأقران</h2><div class="ln"></div></div>
+
+  <div class="alert">
+    <span>💬</span>
+    <div>نموذج منظّم يحوّل التقييم من <strong>حكم</strong> إلى <strong>حوار بنّاء</strong>. يستخدمه الطالب في اللقاء الثالث بعد مشاهدة زميله يُمرِّر الحصة. مبني على بروتوكول "أرى — أتساءل — أقترح".</div>
+  </div>
+
+  <div class="pf-form">
+    <div class="pf-row">
+      <span class="pf-label">👤 اسم الطالب المُقيَّم</span>
+      <input class="pf-input" id="pf-name" placeholder="اكتب اسم زميلك هنا..." oninput="updatePreview()">
+    </div>
+    <div class="pf-row">
+      <span class="pf-label">🗓️ اللقاء والتاريخ</span>
+      <input class="pf-input" id="pf-session" placeholder="مثال: اللقاء الثالث — ..." oninput="updatePreview()">
+    </div>
+
+    <div class="pf-row">
+      <span class="pf-label">👁️ أرى... (ما لاحظته بوضوح في الحصة)</span>
+      <textarea class="pf-input" id="pf-see" placeholder="صِف ما رأيته فعلياً — لا أحكام، فقط ملاحظات..." rows="3" oninput="updatePreview()"></textarea>
+      <div class="pf-tags" id="see-tags">
+        <span class="pf-tag" onclick="addTag('pf-see',this)">استخدم Breakout Rooms</span>
+        <span class="pf-tag" onclick="addTag('pf-see',this)">وظّف Mentimeter</span>
+        <span class="pf-tag" onclick="addTag('pf-see',this)">بدأ بـ Check-in</span>
+        <span class="pf-tag" onclick="addTag('pf-see',this)">أتاح وقتاً للتفاعل</span>
+        <span class="pf-tag" onclick="addTag('pf-see',this)">ربط بالمجتمع المحلي</span>
+      </div>
+    </div>
+
+    <div class="pf-row">
+      <span class="pf-label">❓ أتساءل... (أسئلة تُثري التفكير)</span>
+      <textarea class="pf-input" id="pf-wonder" placeholder="ما الأسئلة التي أثارها الأداء في ذهنك؟..." rows="3" oninput="updatePreview()"></textarea>
+      <div class="pf-tags">
+        <span class="pf-tag" onclick="addTag('pf-wonder',this)">ماذا لو غيّرت الأداة؟</span>
+        <span class="pf-tag" onclick="addTag('pf-wonder',this)">كيف تُشرك الصامتين؟</span>
+        <span class="pf-tag" onclick="addTag('pf-wonder',this)">ما البديل عن المحاضرة؟</span>
+        <span class="pf-tag" onclick="addTag('pf-wonder',this)">أين القيمة المجتمعية؟</span>
+      </div>
+    </div>
+
+    <div class="pf-row">
+      <span class="pf-label">💡 أقترح... (فكرة بنّاءة واحدة)</span>
+      <textarea class="pf-input" id="pf-suggest" placeholder="اقتراح واحد محدد وقابل للتطبيق..." rows="2" oninput="updatePreview()"></textarea>
+      <div class="pf-tags">
+        <span class="pf-tag" onclick="addTag('pf-suggest',this)">تقليص وقت الشرح</span>
+        <span class="pf-tag" onclick="addTag('pf-suggest',this)">إضافة لحظة تأمل</span>
+        <span class="pf-tag" onclick="addTag('pf-suggest',this)">توظيف الدردشة أكثر</span>
+        <span class="pf-tag" onclick="addTag('pf-suggest',this)">ربط بواقع الطلاب</span>
+      </div>
+    </div>
+
+    <div class="pf-row">
+      <span class="pf-label">⭐ نقطة قوة لا تفوّت</span>
+      <input class="pf-input" id="pf-strength" placeholder="ما الشيء المميز الذي يجب أن يحافظ عليه زميلك؟..." oninput="updatePreview()">
+    </div>
+
+    <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.4rem;">
+      <button class="btn btn-navy" onclick="showPreview()">👁️ معاينة النموذج</button>
+      <button class="btn btn-out btn-sm" onclick="clearForm()">🗑️ مسح</button>
+    </div>
+  </div>
+
+  <div class="pf-preview" id="pf-preview">
+    <h4>📋 نموذج التغذية الراجعة — معاينة</h4>
+    <p id="preview-text"></p>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 3: JOURNAL
+══════════════════════════════════════════ -->
+<div id="p-journal" class="panel">
+
+  <div class="sec"><h2>📓 مجلة التعلم الرقمية</h2><div class="ln"></div></div>
+
+  <div class="alert">
+    <span>✍️</span>
+    <div>سجِّل تأملاتك بعد كل لقاء. المجلة تبني وعيك الذاتي وتتحول إلى محور <strong>التقييم التكويني</strong> الحقيقي في نهاية الوحدة. إجاباتك تُحفظ في المتصفح.</div>
+  </div>
+
+  <div class="journal-wrap">
+    <div class="journal-tabs">
+      <button class="j-tab active" onclick="jTab(this,'j1')">🔵 اللقاء الأول</button>
+      <button class="j-tab" onclick="jTab(this,'j2')">🟢 اللقاء الثاني</button>
+      <button class="j-tab" onclick="jTab(this,'j3')">🟣 اللقاء الثالث</button>
+      <button class="j-tab" onclick="jTab(this,'jfull')">📖 المجلة الكاملة</button>
+    </div>
+    <div class="journal-body">
+
+      <!-- SESSION 1 -->
+      <div id="j1" class="j-panel on">
+        <div class="j-prompt">🔵 اللقاء الأول — المفاهيم والفلسفة</div>
+        <div class="j-sub">بعد الانتهاء من اللقاء، أجب على الأسئلة الثلاثة التالية بصدق:</div>
+        <div class="j-field">
+          <span class="pf-label">✅ ما الذي تعلمته فعلاً في هذا اللقاء؟</span>
+          <textarea class="pf-input" id="j1_q1" placeholder="اكتب بحرية — لا إجابات صواب أو خطأ..." rows="3" oninput="autoSave()"></textarea>
+        </div>
+        <div class="j-field">
+          <span class="pf-label">🌀 ما الذي ما زال يُربكني أو يُثير تساؤلاتي؟</span>
+          <textarea class="pf-input" id="j1_q2" placeholder="الارتباك علامة صحية — اكتبه هنا..." rows="3" oninput="autoSave()"></textarea>
+        </div>
+        <div class="j-field">
+          <span class="pf-label">🚀 ماذا سأفعل بشكل مختلف في اللقاء القادم؟</span>
+          <textarea class="pf-input" id="j1_q3" placeholder="التزام واحد قابل للتطبيق..." rows="2" oninput="autoSave()"></textarea>
+        </div>
+        <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-teal btn-sm" onclick="saveJournal(1)">💾 حفظ اللقاء الأول</button>
+          <span id="j1-saved" style="font-size:.8rem;color:var(--teal);font-weight:600;display:none">✅ تم الحفظ!</span>
+        </div>
+      </div>
+
+      <!-- SESSION 2 -->
+      <div id="j2" class="j-panel">
+        <div class="j-prompt">🟢 اللقاء الثاني — التصميم والأدوات</div>
+        <div class="j-sub">بعد تجربة ورشة التصميم والغرف الجانبية:</div>
+        <div class="j-field">
+          <span class="pf-label">🛠️ أيّ أداة رقمية استخدمتها اليوم وكيف خدمت الهدف التربوي؟</span>
+          <textarea class="pf-input" id="j2_q1" placeholder="صِف توظيفك للأداة..." rows="3" oninput="autoSave()"></textarea>
+        </div>
+        <div class="j-field">
+          <span class="pf-label">👥 كيف أسهمت ديناميكية مجموعتك في بناء المعنى الجماعي؟</span>
+          <textarea class="pf-input" id="j2_q2" placeholder="ما الذي حدث في الغرفة الجانبية؟..." rows="3" oninput="autoSave()"></textarea>
+        </div>
+        <div class="j-field">
+          <span class="pf-label">🌍 ما القيمة المجتمعية التي لمستها في مبادرة مجموعتك؟</span>
+          <textarea class="pf-input" id="j2_q3" placeholder="ربط المبادرة بالمجتمع المحلي..." rows="2" oninput="autoSave()"></textarea>
+        </div>
+        <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-teal btn-sm" onclick="saveJournal(2)">💾 حفظ اللقاء الثاني</button>
+          <span id="j2-saved" style="font-size:.8rem;color:var(--teal);font-weight:600;display:none">✅ تم الحفظ!</span>
+        </div>
+      </div>
+
+      <!-- SESSION 3 -->
+      <div id="j3" class="j-panel">
+        <div class="j-prompt">🟣 اللقاء الثالث — التطبيق والتقييم</div>
+        <div class="j-sub">بعد تمرير نشاطك أمام زملائك:</div>
+        <div class="j-field">
+          <span class="pf-label">🎭 كيف شعرت حين كنت في دور المربي؟ ما الذي فاجأك؟</span>
+          <textarea class="pf-input" id="j3_q1" placeholder="كن صادقاً — هذا فضاء آمن..." rows="3" oninput="autoSave()"></textarea>
+        </div>
+        <div class="j-field">
+          <span class="pf-label">🔁 ما الفرق بين أن تُشاهد حصة وأن تُمرِّرها؟</span>
+          <textarea class="pf-input" id="j3_q2" placeholder="تأمل في تجربة التحول من طالب إلى مربي..." rows="3" oninput="autoSave()"></textarea>
+        </div>
+        <div class="j-field">
+          <span class="pf-label">🌟 أكمل: "التعلم عن بُعد في التربية غير المنهجية هو..."</span>
+          <textarea class="pf-input" id="j3_q3" placeholder="جملتك الختامية بعد رحلة الوحدة..." rows="2" oninput="autoSave()"></textarea>
+        </div>
+        <div style="display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-teal btn-sm" onclick="saveJournal(3)">💾 حفظ اللقاء الثالث</button>
+          <span id="j3-saved" style="font-size:.8rem;color:var(--teal);font-weight:600;display:none">✅ تم الحفظ!</span>
+        </div>
+      </div>
+
+      <!-- FULL JOURNAL -->
+      <div id="jfull" class="j-panel">
+        <div class="j-prompt">📖 مجلتك الكاملة</div>
+        <div class="j-sub">ملخص تأملاتك عبر اللقاءات الثلاثة</div>
+        <div id="journal-full-content">
+          <div class="j-empty">📝 لم تُسجِّل أي مدخلات بعد — ابدأ بتعبئة مجلة اللقاء الأول.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 4: OBSERVATION CARD
+══════════════════════════════════════════ -->
+<div id="p-obs" class="panel">
+
+  <div class="sec"><h2>👁️ بطاقة ملاحظة الحصة</h2><div class="ln"></div></div>
+
+  <div class="alert">
+    <span>🔬</span>
+    <div>يملأها <strong>طالب مراقب</strong> مخصَّص في كل حصة. يرصد التفاعل والتوزيع الزمني وأنماط المشاركة — تدريب حقيقي على <strong>البحث الإثنوغرافي</strong> في آنٍ واحد مع تطوير الحصة.</div>
+  </div>
+
+  <div class="obs-card">
+    <div class="obs-head">
+      <h3>👁️ بطاقة ملاحظة الحصة الرقمية</h3>
+      <p>يملؤها طالب المراقب — التربية غير المنهجية عبر Zoom</p>
+    </div>
+    <div class="obs-body">
+
+      <!-- INFO -->
+      <div class="obs-section">
+        <div class="obs-title">📋 معلومات الحصة</div>
+        <div class="obs-grid">
+          <div class="obs-item"><label>اسم المربي المُلاحَظ</label><input id="ob_educator" placeholder="اسم الطالب الذي يُمرِّر الحصة"></div>
+          <div class="obs-item"><label>اسم المراقب</label><input id="ob_observer" placeholder="اسمك كمراقب"></div>
+          <div class="obs-item"><label>اللقاء</label>
+            <select id="ob_session">
+              <option>اللقاء الأول</option>
+              <option>اللقاء الثاني</option>
+              <option>اللقاء الثالث</option>
+            </select>
+          </div>
+          <div class="obs-item"><label>التاريخ</label><input type="date" id="ob_date"></div>
+        </div>
+      </div>
+
+      <!-- TALLY -->
+      <div class="obs-section">
+        <div class="obs-title">📊 مؤشرات التفاعل (انقر + / − لتسجيل التكرار)</div>
+        <div id="tally-items"></div>
+      </div>
+
+      <!-- TIME -->
+      <div class="obs-section">
+        <div class="obs-title">⏱️ التوزيع الزمني التقريبي</div>
+        <div class="obs-grid">
+          <div class="obs-item"><label>وقت حديث المربي (دقائق)</label><input type="number" id="ob_t_educator" placeholder="0" min="0" max="90"></div>
+          <div class="obs-item"><label>وقت مشاركة الطلاب (دقائق)</label><input type="number" id="ob_t_students" placeholder="0" min="0" max="90"></div>
+          <div class="obs-item"><label>وقت العمل الجماعي (دقائق)</label><input type="number" id="ob_t_group" placeholder="0" min="0" max="90"></div>
+          <div class="obs-item"><label>وقت الصمت / الانتظار (دقائق)</label><input type="number" id="ob_t_silence" placeholder="0" min="0" max="90"></div>
+        </div>
+      </div>
+
+      <!-- NOTES -->
+      <div class="obs-section">
+        <div class="obs-title">📝 ملاحظات نوعية</div>
+        <div class="obs-grid">
+          <div class="obs-item" style="grid-column:1/-1"><label>لحظة الذروة — أكثر لحظة تفاعل في الحصة</label><textarea class="pf-input" id="ob_peak" placeholder="صِف اللحظة التي ارتفع فيها التفاعل بشكل لافت..." rows="2"></textarea></div>
+          <div class="obs-item" style="grid-column:1/-1"><label>لحظة الانكسار — أضعف لحظة تفاعل</label><textarea class="pf-input" id="ob_low" placeholder="متى لاحظت تراجع الانتباه أو التفاعل؟..." rows="2"></textarea></div>
+          <div class="obs-item" style="grid-column:1/-1"><label>ملاحظة ختامية للمراقب</label><textarea class="pf-input" id="ob_final" placeholder="رأيك الإجمالي في الحصة كمراقب..." rows="2"></textarea></div>
+        </div>
+      </div>
+
+      <div class="obs-print-row">
+        <button class="btn btn-purple" onclick="window.print()" style="background:var(--purple);color:#fff">🖨️ طباعة البطاقة</button>
+        <button class="btn btn-out btn-sm" onclick="clearObs()">🗑️ مسح البطاقة</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 5: DASHBOARD
+══════════════════════════════════════════ -->
+<div id="p-dash" class="panel">
+
+  <div class="sec"><h2>📊 لوحة تقدمي في الوحدة</h2><div class="ln"></div></div>
+
+  <div class="alert">
+    <span>📈</span>
+    <div>تصوّر بصري لمسارك عبر اللقاءات الثلاثة — التقدم يتحدث تلقائياً من قوائم التحقق وسلم التقدير. قيّم نفسك هنا بعد كل لقاء.</div>
+  </div>
+
+  <!-- STATS -->
+  <div class="dash-header">
+    <div class="dash-stat">
+      <div class="dash-num" id="d-sessions" style="color:var(--navy)">0</div>
+      <div class="dash-lbl">لقاءات مكتملة</div>
+    </div>
+    <div class="dash-stat">
+      <div class="dash-num" id="d-tasks" style="color:var(--teal)">0</div>
+      <div class="dash-lbl">مهام منجزة</div>
+    </div>
+    <div class="dash-stat">
+      <div class="dash-num" id="d-score" style="color:var(--gold)">0</div>
+      <div class="dash-lbl">نقاط التقييم الذاتي</div>
+    </div>
+  </div>
+
+  <!-- PROGRESS BARS -->
+  <div class="dash-bar-wrap">
+    <div class="dash-bar-title">📅 تقدمي في اللقاءات</div>
+    <div class="dash-session">
+      <div class="ds-head">
+        <span class="ds-name">🔵 اللقاء الأول — المفاهيم والفلسفة</span>
+        <span class="ds-pct" style="color:var(--navy)" id="p1-pct">0%</span>
+      </div>
+      <div class="ds-track"><div class="ds-fill" id="p1-bar" style="width:0%;background:var(--navy)"></div></div>
+    </div>
+    <div class="dash-session">
+      <div class="ds-head">
+        <span class="ds-name">🟢 اللقاء الثاني — التصميم والأدوات</span>
+        <span class="ds-pct" style="color:var(--teal)" id="p2-pct">0%</span>
+      </div>
+      <div class="ds-track"><div class="ds-fill" id="p2-bar" style="width:0%;background:var(--teal)"></div></div>
+    </div>
+    <div class="dash-session">
+      <div class="ds-head">
+        <span class="ds-name">🟣 اللقاء الثالث — التطبيق والتقييم</span>
+        <span class="ds-pct" style="color:var(--purple)" id="p3-pct">0%</span>
+      </div>
+      <div class="ds-track"><div class="ds-fill" id="p3-bar" style="width:0%;background:var(--purple)"></div></div>
+    </div>
+  </div>
+
+  <!-- SELF ASSESSMENT -->
+  <div class="dash-self">
+    <h3>⭐ تقييمي الذاتي التراكمي</h3>
+    <p style="font-size:.82rem;color:var(--gray);margin-bottom:1rem;">قيّم نفسك بعد الانتهاء من الوحدة كاملة (1-4 لكل معيار):</p>
+    <div id="self-criteria"></div>
+    <div class="dash-score" id="dash-score-box">
+      <div class="big" id="d-total">0</div>
+      <div class="lbl" id="d-lbl">ابدأ التقييم</div>
+    </div>
+  </div>
+
+  <!-- MILESTONES -->
+  <div class="dash-tasks">
+    <h3>🏆 محطات الإنجاز</h3>
+    <div id="milestones"></div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     TAB 6: LESSON PLAN
+══════════════════════════════════════════ -->
+<div id="p-plan" class="panel">
+
+  <div class="sec"><h2>📋 قالب خطة الحصة</h2><div class="ln"></div></div>
+
+  <div class="alert">
+    <span>📝</span>
+    <div>صمِّم خطة حصتك الرقمية قبل اللقاء الثالث. القالب يبني تفكيرك التصميمي ويُجهِّزك لتمرير الحصة بثقة واحترافية.</div>
+  </div>
+
+  <div class="lp-form">
+
+    <!-- SECTION 1: BASICS -->
+    <div class="lp-section">
+      <div class="lp-title">📌 المعلومات الأساسية</div>
+      <div class="lp-grid">
+        <div class="lp-field"><label>عنوان الحصة</label><input id="lp_title" placeholder="مثال: القيادة الشابة في ظل التحديات"></div>
+        <div class="lp-field"><label>القيمة المجتمعية المحورية</label>
+          <select id="lp_value">
+            <option>اختر قيمة...</option>
+            <option>التطوع والعطاء</option>
+            <option>القيادة والمبادرة</option>
+            <option>التسامح والتعايش</option>
+            <option>التضامن المجتمعي</option>
+            <option>المواطنة الفاعلة</option>
+            <option>الهوية والانتماء</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div class="lp-field"><label>الفئة المستهدفة</label><input id="lp_audience" placeholder="مثال: طلاب السنة الأولى — 20 طالباً"></div>
+        <div class="lp-field"><label>المدة الكلية</label>
+          <select id="lp_duration">
+            <option>45 دقيقة</option>
+            <option>60 دقيقة</option>
+            <option selected>90 دقيقة</option>
+            <option>120 دقيقة</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: OBJECTIVES -->
+    <div class="lp-section">
+      <div class="lp-title">🎯 الأهداف التعليمية</div>
+      <div class="lp-field"><label>بنهاية الحصة، الطالب قادر على:</label>
+        <textarea id="lp_objectives" placeholder="اكتب 2-3 أهداف قابلة للقياس&#10;مثال: ١. تصميم مبادرة رقمية مرتبطة بقضية مجتمعية&#10;٢. توظيف ميزة واحدة من Zoom بشكل تربوي فعّال" rows="4"></textarea>
+      </div>
+    </div>
+
+    <!-- SECTION 3: PHASES -->
+    <div class="lp-section">
+      <div class="lp-title">📅 مراحل الحصة</div>
+      <div style="overflow-x:auto">
+      <table class="phases-table" id="phases-table">
+        <thead>
+          <tr>
+            <th style="width:18%">المرحلة</th>
+            <th style="width:12%">المدة</th>
+            <th style="width:20%">الأداة الرقمية</th>
+            <th>الوصف والتعليمات</th>
+          </tr>
+        </thead>
+        <tbody id="phases-body">
+          <!-- built by JS -->
+        </tbody>
+      </table>
+      </div>
+      <div style="margin-top:.7rem;display:flex;gap:.5rem;flex-wrap:wrap;">
+        <button class="btn btn-out btn-sm" onclick="addPhase()">➕ إضافة مرحلة</button>
+        <button class="btn btn-danger btn-sm" onclick="removePhase()">➖ حذف آخر مرحلة</button>
+      </div>
+    </div>
+
+    <!-- SECTION 4: TOOLS & VALUES -->
+    <div class="lp-section">
+      <div class="lp-grid">
+        <div class="lp-field">
+          <label>🛠️ الأدوات الرقمية المستخدمة</label>
+          <div id="tools-check" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.3rem;"></div>
+        </div>
+        <div class="lp-field">
+          <label>❓ سؤال التأمل الختامي</label>
+          <textarea id="lp_reflection" placeholder="ما السؤال الذي ستطرحه في نهاية الحصة؟..." rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: EVALUATION -->
+    <div class="lp-section">
+      <div class="lp-title">📊 آلية التقييم</div>
+      <div class="lp-grid">
+        <div class="lp-field"><label>أداة التقييم</label>
+          <select id="lp_eval">
+            <option>سلم التقدير (Rubric)</option>
+            <option>الملاحظة المباشرة</option>
+            <option>التقييم الذاتي</option>
+            <option>تقييم الأقران</option>
+            <option>نشاط Padlet التأملي</option>
+            <option>مزيج من الأدوات</option>
+          </select>
+        </div>
+        <div class="lp-field"><label>معيار النجاح الرئيسي</label><input id="lp_success" placeholder="كيف ستعرف أن الحصة نجحت؟"></div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:.7rem;flex-wrap:wrap;">
+      <button class="btn btn-navy" onclick="generatePlan()">👁️ معاينة الخطة</button>
+      <button class="btn btn-teal" onclick="window.print()">🖨️ طباعة</button>
+      <button class="btn btn-out btn-sm" onclick="clearPlan()">🗑️ مسح</button>
+    </div>
+  </div>
+
+  <div class="lp-preview" id="lp-preview">
+    <h3>📋 خطة حصتك — ملخص</h3>
+    <div id="lp-preview-body"></div>
+  </div>
+
+</div>
+
+</div><!-- /wrap -->
+
+<footer>
+  إعداد: د. دعاء مكاري | قسم التربية غير المنهجية | كلية القاسمي الأكاديمية<br>
+  <span style="color:var(--teal);font-weight:700">حقيبة أدوات المربي الرقمي — البيداغوجيا الرقمية في الفضاء غير المنهجي</span>
+</footer>
+
+<script>
+// ──────────────────────────────────────────
+// TABS
+// ──────────────────────────────────────────
+function sw(btn,id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('p-'+id).classList.add('on');
+  btn.classList.add('active');
+  if(id==='dash') refreshDash();
+  if(id==='journal') renderFullJournal();
+}
+
+// ──────────────────────────────────────────
+// ROLE CARDS
+// ──────────────────────────────────────────
+const ROLES = [
+  {
+    name:'الميسِّر الرقمي', emoji:'🎯', color:'#1B3A6B', sub:'Digital Facilitator',
+    desc:'تأكد من أن الحوار يسير بسلاسة — لا أحد يهيمن ولا أحد يصمت لفترة طويلة.',
+    mission:'اطرح 3 أسئلة استقصائية على الأقل. أشرك طالباً صامتاً بطريقة إيجابية.',
+    why:'مستوحى من نموذج CoI (Garrison, 2016) — الحضور التدريسي لا يقتصر على المربي بل يمكن لأي طالب أن يؤدي دور الميسِّر. تدريب على التعلم التشاركي الأفقي.',
+    whyBg:'#EBF2FF',
+    whyClr:'#1B3A6B',
+    examples:[
+      'حين يطيل زميل الشرح تقول: "شكراً لك — ماذا يضيف أحد آخر؟"',
+      'ترى طالباً صامتاً فتكتب في الدردشة: "يمنى، ماذا تفكرين؟"',
+      'تلاحظ أن النقاش انحرف فتقول: "كيف يرتبط هذا بموضوع حصتنا؟"',
+    ],
+    exBg:'#F0F7FF',
+    exClr:'#1B3A6B',
+  },
+  {
+    name:'صوت المجتمع', emoji:'🌍', color:'#1A7A6E', sub:'Community Voice',
+    desc:'ذكِّر المجموعة بالربط الدائم بين ما يُناقَش وواقع المجتمع المحلي.',
+    mission:'اربط كل نشاط بمثال من مجتمعك. اذكر اسم بلدتك أو حارتك.',
+    why:'مستوحى من بيداغوجيا فريري — التعليم ليس محايداً، بل ينبثق من الواقع المعاش. دورك إعادة التعليم إلى أصوله الاجتماعية ومنع الانفصال بين الفضاء الرقمي والمجتمع الحقيقي.',
+    whyBg:'#EDFAF7',
+    whyClr:'#1A7A6E',
+    examples:[
+      'يتحدثون عن التطوع فتقول: "في بلدتنا كفر قرع، هناك مبادرة لتنظيف الوادي — كيف نطوّرها؟"',
+      'يناقشون القيادة فتربط: "تذكروا حملة الشباب في مجلسنا المحلي الشهر الماضي…"',
+      'يصممون مبادرة افتراضية فتسأل: "من هو الشخص الحقيقي في حيّنا الذي سيستفيد؟"',
+    ],
+    exBg:'#F0FBF9',
+    exClr:'#1A7A6E',
+  },
+  {
+    name:'المراقب النقدي', emoji:'🔍', color:'#6B21A8', sub:'Critical Observer',
+    desc:'راقب الحصة بعيون الباحث — التفاعل، الأدوات، توزيع الوقت، الأنماط.',
+    mission:'دوِّن 3 ملاحظات نوعية. شاركها في الإغلاق بلغة أكاديمية.',
+    why:'تدريب على البحث الإثنوغرافي في البيئات التعليمية الرقمية. يبني مهارة الملاحظة المنظّمة — وهي مهارة جوهرية للمربي البحثي المنعكس على ممارسته.',
+    whyBg:'#F5F0FF',
+    whyClr:'#6B21A8',
+    examples:[
+      'تلاحظ وتدوّن: "استغرق الشرح 18 دقيقة من أصل 35 — أي 51% من وقت المربي."',
+      'ترصد: "طالبتان لم تكتبا في الدردشة طوال الحصة — الكاميرا مطفأة."',
+      'في الإغلاق تقدّم: "أقترح أكاديمياً: توظيف Mentimeter في هذه اللحظة كان سيرفع التفاعل."',
+    ],
+    exBg:'#FAF5FF',
+    exClr:'#6B21A8',
+  },
+  {
+    name:'محرّك الأسئلة', emoji:'❓', color:'#B45309', sub:'Question Driver',
+    desc:'مهمتك طرح الأسئلة لا الإجابة عنها — كلما أثرت تساؤلاً كلما نجحت.',
+    mission:'اطرح 5 أسئلة على الأقل. استخدم: لماذا؟ كيف؟ ماذا لو؟',
+    why:'مستوحى من الطريقة السقراطية وبيداغوجيا فريري — الأسئلة الحقيقية هي التي تُحرّر التفكير وتكسر المحاضرة التقليدية. الهدف: جعل الطلاب يفكرون بدل أن يُفكَّر عنهم.',
+    whyBg:'#FFFBEB',
+    whyClr:'#92400E',
+    examples:[
+      'بعد شرح الأداة تسأل: "ماذا لو لم تكن هذه الأداة موجودة — كيف كنا سنحقق نفس الهدف؟"',
+      'حين يتفقون جميعاً تقول: "من لديه رأي مختلف؟ التعلم يحتاج احتكاكاً."',
+      'في الإغلاق: "لماذا، برأيكم، نهتم بالتربية غير المنهجية أصلاً في 2025؟"',
+    ],
+    exBg:'#FEFCE8',
+    exClr:'#92400E',
+  },
+  {
+    name:'حارس الوقت', emoji:'⏱️', color:'#BE185D', sub:'Time Guardian',
+    desc:'راقب توزيع الوقت وذكِّر المربي بلطف حين يتجاوز الحدود المخططة.',
+    mission:'سجِّل وقت كل مرحلة. في الإغلاق، قدِّم تقريراً زمنياً دقيقاً.',
+    why:'إدارة الوقت في البيئة الرقمية أصعب منها وجاهياً — الصمت الرقمي مغرٍ لملئه بشرح إضافي. تدريب على الوعي الزمني كمهارة ميسِّر محترف.',
+    whyBg:'#FFF0F6',
+    whyClr:'#9D174D',
+    examples:[
+      'بعد 12 دقيقة من الشرح تكتب في الدردشة: "⏱️ تذكير ودّي: مضى 12 دقيقة من 15."',
+      'تلاحظ أن الغرفة الجانبية انتهت والطلاب لم يعودوا فتنبّه: "⏰ وقت العودة!"',
+      'في الإغلاق تقدّم: "المرحلة الأولى أخذت 18 دقيقة بدل 10 — ما الذي يمكن اختصاره؟"',
+    ],
+    exBg:'#FDF2F8',
+    exClr:'#9D174D',
+  },
+  {
+    name:'سفير الشمول', emoji:'🤝', color:'#15803D', sub:'Inclusion Ambassador',
+    desc:'تأكد من أن كل صوت مسموع — الكاميرات المطفأة، الصامتون، المنسحبون.',
+    mission:'ادعُ طالباً صامتاً للمشاركة مرتين على الأقل بطريقة مريحة.',
+    why:'مستوحى من نظرية التعليم الشامل ومبادئ UDL — في البيئة الرقمية، الإقصاء غير المقصود أشيع بكثير. الكاميرا المطفأة ليست كسلاً بل قد تكون خجلاً أو ظرفاً اجتماعياً.',
+    whyBg:'#ECFDF5',
+    whyClr:'#166534',
+    examples:[
+      'تكتب في الدردشة لطالب صامت: "خالد، لاحظت أنك مفكّر — ما رأيك بجملة واحدة؟"',
+      'تستخدم Poll بدل السؤال المباشر لتتيح لمن يخجل أن يُعبِّر برقم.',
+      'في الإغلاق تقول: "من لم يتحدث اليوم — الصمت أيضاً رسالة. ما الذي أخذته معك؟"',
+    ],
+    exBg:'#F0FDF4',
+    exClr:'#166534',
+  },
+];
+
+let assigned = {};
+function buildRoles(){
+  const deck = document.getElementById('role-deck');
+  deck.innerHTML = ROLES.map((r,i)=>`
+    <div class="role-card" onclick="flipCard(${i})">
+      <div class="role-front" id="rf-${i}" style="background:${r.color}">
+        <div>
+          <div class="role-emoji">${r.emoji}</div>
+          <div class="role-name">${r.name}</div>
+          <div class="role-subtitle">${r.sub}</div>
+        </div>
+        <div>
+          ${assigned[i]?`<div style="font-size:.78rem;color:rgba(255,255,255,.8);margin-bottom:.2rem">👤 ${assigned[i]}</div>`:''}
+          <div class="role-flip-hint">اضغط للتفاصيل ↩</div>
+        </div>
+      </div>
+      <div class="role-back" id="rb-${i}" style="border-color:${r.color}">
+        <div class="role-tabs-inner">
+          <button class="role-itab active" onclick="event.stopPropagation();rTab(${i},this,'rt-desc-${i}')">📋 الدور</button>
+          <button class="role-itab" onclick="event.stopPropagation();rTab(${i},this,'rt-why-${i}')">🎓 لماذا؟</button>
+          <button class="role-itab" onclick="event.stopPropagation();rTab(${i},this,'rt-ex-${i}')">💬 أمثلة</button>
+        </div>
+        <div id="rt-desc-${i}" class="role-ipanel on">
+          <div class="role-back-title" style="color:${r.color}">${r.emoji} ${r.name}</div>
+          <div class="role-back-body">${r.desc}</div>
+          <div class="role-mission">🎯 مهمتك في الحصة: ${r.mission}</div>
+        </div>
+        <div id="rt-why-${i}" class="role-ipanel">
+          <div class="role-why" style="background:${r.whyBg};color:${r.whyClr}">
+            <div style="font-weight:700;margin-bottom:.35rem;font-size:.81rem">🎓 الأساس النظري والتربوي</div>
+            ${r.why}
+          </div>
+        </div>
+        <div id="rt-ex-${i}" class="role-ipanel">
+          <div class="role-example-box" style="background:${r.exBg}">
+            <div class="role-example-title" style="color:${r.exClr}">💬 أمثلة تطبيقية حية</div>
+            ${r.examples.map((ex,ei)=>`<div class="role-ex-item"><span class="role-ex-num" style="color:${r.exClr}">${ei+1}.</span><span style="color:#374151">${ex}</span></div>`).join('')}
+          </div>
+        </div>
+        <div style="margin-top:.8rem">
+          <button class="btn btn-sm" style="background:${r.color};color:#fff" onclick="event.stopPropagation();flipCard(${i})">← رجوع للبطاقة</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+function rTab(cardIdx, btn, panelId){
+  const back = document.getElementById('rb-'+cardIdx);
+  back.querySelectorAll('.role-ipanel').forEach(p=>p.classList.remove('on'));
+  back.querySelectorAll('.role-itab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(panelId).classList.add('on');
+  btn.classList.add('active');
+}
+function flipCard(i){
+  const f=document.getElementById('rf-'+i), b=document.getElementById('rb-'+i);
+  if(b.classList.contains('show')){ b.classList.remove('show'); f.classList.remove('hide'); }
+  else { f.classList.add('hide'); b.classList.add('show'); }
+}
+function shuffle(){
+  const names=['طالب أ','طالب ب','طالب ج','طالب د','طالب هـ','طالب و'];
+  const shuffled=[...names].sort(()=>Math.random()-.5);
+  ROLES.forEach((r,i)=>{ assigned[i]=shuffled[i]||''; });
+  buildRoles();
+  document.getElementById('shuffle-msg').textContent='✅ تم توزيع الأدوار عشوائياً!';
+  setTimeout(()=>document.getElementById('shuffle-msg').textContent='',3000);
+}
+function resetRoles(){ assigned={}; buildRoles(); }
+buildRoles();
+
+// ──────────────────────────────────────────
+// PEER FEEDBACK
+// ──────────────────────────────────────────
+function addTag(fieldId, el){
+  const field = document.getElementById(fieldId);
+  const tag = el.textContent.trim();
+  el.classList.toggle('sel');
+  if(el.classList.contains('sel')){
+    field.value += (field.value ? '، ' : '') + tag;
+  } else {
+    field.value = field.value.replace('، '+tag,'').replace(tag,'').trim().replace(/^،\s*/,'');
+  }
+  updatePreview();
+}
+function updatePreview(){}
+function showPreview(){
+  const name=document.getElementById('pf-name').value||'الزميل';
+  const see=document.getElementById('pf-see').value||'—';
+  const wonder=document.getElementById('pf-wonder').value||'—';
+  const suggest=document.getElementById('pf-suggest').value||'—';
+  const strength=document.getElementById('pf-strength').value||'—';
+  const preview=document.getElementById('pf-preview');
+  document.getElementById('preview-text').innerHTML=
+    `<strong>المُقيَّم:</strong> ${name}<br><br>`+
+    `<strong>👁️ أرى:</strong> ${see}<br><br>`+
+    `<strong>❓ أتساءل:</strong> ${wonder}<br><br>`+
+    `<strong>💡 أقترح:</strong> ${suggest}<br><br>`+
+    `<strong>⭐ نقطة قوة:</strong> ${strength}`;
+  preview.classList.add('show');
+  preview.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function clearForm(){
+  ['pf-name','pf-session','pf-see','pf-wonder','pf-suggest','pf-strength']
+    .forEach(id=>document.getElementById(id).value='');
+  document.querySelectorAll('.pf-tag').forEach(t=>t.classList.remove('sel'));
+  document.getElementById('pf-preview').classList.remove('show');
+}
+
+// ──────────────────────────────────────────
+// JOURNAL
+// ──────────────────────────────────────────
+function jTab(btn, id){
+  document.querySelectorAll('.j-panel').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.j-tab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('active');
+  if(id==='jfull') renderFullJournal();
+}
+function autoSave(){
+  const keys=['j1_q1','j1_q2','j1_q3','j2_q1','j2_q2','j2_q3','j3_q1','j3_q2','j3_q3'];
+  const data={};
+  keys.forEach(k=>{ const el=document.getElementById(k); if(el) data[k]=el.value; });
+  try { localStorage.setItem('nfe_journal', JSON.stringify(data)); } catch(e){}
+}
+function loadJournal(){
+  try {
+    const raw = localStorage.getItem('nfe_journal');
+    if(!raw) return;
+    const data = JSON.parse(raw);
+    Object.entries(data).forEach(([k,v])=>{ const el=document.getElementById(k); if(el) el.value=v; });
+  } catch(e){}
+}
+function saveJournal(n){
+  autoSave();
+  const msg=document.getElementById('j'+n+'-saved');
+  msg.style.display='inline';
+  setTimeout(()=>msg.style.display='none',2500);
+}
+function renderFullJournal(){
+  const sessions=[
+    {label:'🔵 اللقاء الأول',keys:['j1_q1','j1_q2','j1_q3'],qs:['ما الذي تعلمته؟','ما الذي ما زال يُربكني؟','ماذا سأفعل بشكل مختلف؟']},
+    {label:'🟢 اللقاء الثاني',keys:['j2_q1','j2_q2','j2_q3'],qs:['الأداة الرقمية وتوظيفها؟','ديناميكية المجموعة؟','القيمة المجتمعية؟']},
+    {label:'🟣 اللقاء الثالث',keys:['j3_q1','j3_q2','j3_q3'],qs:['كيف شعرت كمربي؟','الفرق بين المشاهدة والتمرير؟','جملتك الختامية...']},
+  ];
+  let html='';
+  let hasContent=false;
+  sessions.forEach(s=>{
+    const entries=s.keys.map((k,i)=>{
+      const el=document.getElementById(k);
+      const v=el?el.value.trim():'';
+      return v?`<div class="j-entry"><div class="j-entry-date">${s.qs[i]}</div><div class="j-entry-text">${v}</div></div>`:'';
+    }).join('');
+    if(entries){
+      hasContent=true;
+      html+=`<div style="margin-bottom:1.1rem"><div style="font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:.5rem">${s.label}</div>${entries}</div>`;
+    }
+  });
+  document.getElementById('journal-full-content').innerHTML=
+    hasContent ? html : '<div class="j-empty">📝 لم تُسجِّل أي مدخلات بعد — ابدأ بتعبئة مجلة اللقاء الأول.</div>';
+}
+loadJournal();
+
+// ──────────────────────────────────────────
+// OBSERVATION CARD
+// ──────────────────────────────────────────
+const TALLY_ITEMS = [
+  'أسئلة المربي', 'أسئلة الطلاب', 'استخدام الدردشة',
+  'مشاركة في Poll', 'تفاعل في Whiteboard', 'تدخّلات في Breakout',
+];
+const tallyCounts = {};
+function buildTally(){
+  const c = document.getElementById('tally-items');
+  c.innerHTML = TALLY_ITEMS.map(item=>{
+    tallyCounts[item]=0;
+    return `<div class="tally-row">
+      <span class="tally-label">${item}</span>
+      <div class="tally-btns">
+        <button class="tally-btn" onclick="tally('${item}',-1)">−</button>
+        <span class="tally-count" id="t-${item.replace(/ /g,'_')}">0</span>
+        <button class="tally-btn" onclick="tally('${item}',1)">+</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+function tally(item, delta){
+  tallyCounts[item] = Math.max(0, (tallyCounts[item]||0) + delta);
+  document.getElementById('t-'+item.replace(/ /g,'_')).textContent = tallyCounts[item];
+}
+function clearObs(){
+  ['ob_educator','ob_observer','ob_peak','ob_low','ob_final'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value='';
+  });
+  TALLY_ITEMS.forEach(item=>{ tallyCounts[item]=0; const el=document.getElementById('t-'+item.replace(/ /g,'_')); if(el) el.textContent='0'; });
+}
+buildTally();
+
+// ──────────────────────────────────────────
+// DASHBOARD
+// ──────────────────────────────────────────
+const DASH_CRITERIA = ['التوظيف البيداغوجي','محورية الطالب','الارتباط القيمي','الوضوح والتسلسل','اللغة الأكاديمية'];
+const dashScores = new Array(5).fill(0);
+const MILESTONES = [
+  {text:'إكمال Check-in في اللقاء الأول', color:C='var(--navy)'},
+  {text:'بناء Padlet مشترك مع المجموعة', color:'var(--teal)'},
+  {text:'توظيف Mentimeter بفاعلية', color:'var(--blue)'},
+  {text:'إدارة Breakout Rooms بنجاح', color:'var(--purple)'},
+  {text:'تمرير نشاط كامل في اللقاء الثالث', color:'var(--gold)'},
+  {text:'إكمال سلم التقدير الذاتي', color:'var(--green)'},
+];
+function buildDash(){
+  // self criteria
+  const sc = document.getElementById('self-criteria');
+  if(sc) sc.innerHTML = DASH_CRITERIA.map((c,ci)=>`
+    <div class="self-row">
+      <span class="self-label">${ci+1}. ${c}</span>
+      <div class="self-stars">
+        ${[1,2,3,4].map(n=>`<span class="s-star ${dashScores[ci]>=n?'on':''}" onclick="setDash(${ci},${n})">${dashScores[ci]>=n?'★':'☆'}</span>`).join('')}
+      </div>
+    </div>
+  `).join('');
+  // milestones
+  const ml = document.getElementById('milestones');
+  if(ml) ml.innerHTML = MILESTONES.map((m,i)=>{
+    const done = dashScores.reduce((a,b)=>a+b,0) > i*2;
+    return `<div class="task-item">
+      <div class="task-dot" style="background:${done?m.color:'#D1D5DB'}"></div>
+      <span class="task-text" style="${done?'':'color:var(--gray)'}">${m.text}</span>
+      <span class="task-badge" style="background:${done?m.color+'22':'var(--grayL)'};color:${done?m.color:'var(--gray)'}">${done?'✅ مكتمل':'⏳ قيد التقدم'}</span>
+    </div>`;
+  }).join('');
+}
+function setDash(ci,val){
+  dashScores[ci]=val;
+  buildDash();
+  updateDashScore();
+}
+function updateDashScore(){
+  const total=dashScores.reduce((a,b)=>a+b,0);
+  document.getElementById('d-total').textContent=total;
+  document.getElementById('d-score').textContent=total;
+  let lbl='';
+  if(total===0) lbl='ابدأ التقييم';
+  else if(total<=8)  lbl='🔴 يحتاج تطوير';
+  else if(total<=12) lbl='🟡 أداء مقبول';
+  else if(total<=16) lbl='🟢 أداء جيد!';
+  else               lbl='⭐ ممتاز!';
+  document.getElementById('d-lbl').textContent=lbl;
+  const box=document.getElementById('dash-score-box');
+  if(box) box.style.background = total>=17?'var(--tealL)':total>=13?'var(--blueL)':total>=9?'var(--goldL)':'#FFE5E5';
+}
+function refreshDash(){
+  buildDash();
+  updateDashScore();
+  // progress bars (simulate from journal)
+  const j1 = ['j1_q1','j1_q2','j1_q3'].filter(k=>{ const el=document.getElementById(k); return el&&el.value.trim(); }).length;
+  const j2 = ['j2_q1','j2_q2','j2_q3'].filter(k=>{ const el=document.getElementById(k); return el&&el.value.trim(); }).length;
+  const j3 = ['j3_q1','j3_q2','j3_q3'].filter(k=>{ const el=document.getElementById(k); return el&&el.value.trim(); }).length;
+  const p1=Math.round(j1/3*100), p2=Math.round(j2/3*100), p3=Math.round(j3/3*100);
+  document.getElementById('p1-bar').style.width=p1+'%';
+  document.getElementById('p2-bar').style.width=p2+'%';
+  document.getElementById('p3-bar').style.width=p3+'%';
+  document.getElementById('p1-pct').textContent=p1+'%';
+  document.getElementById('p2-pct').textContent=p2+'%';
+  document.getElementById('p3-pct').textContent=p3+'%';
+  const sessions = [j1,j2,j3].filter(v=>v>0).length;
+  const tasks = j1+j2+j3;
+  document.getElementById('d-sessions').textContent=sessions;
+  document.getElementById('d-tasks').textContent=tasks;
+}
+buildDash();
+
+// ──────────────────────────────────────────
+// LESSON PLAN
+// ──────────────────────────────────────────
+const DEFAULT_PHASES = [
+  {name:'الافتتاحية (Check-in)',  dur:'10 دق', tool:'Zoom Reactions', desc:'نشاط كسر الجليد وتهيئة الجو العاطفي'},
+  {name:'الاستكشاف',              dur:'15 دق', tool:'Mentimeter',     desc:''},
+  {name:'النشاط المركزي',         dur:'35 دق', tool:'Breakout Rooms + Padlet', desc:''},
+  {name:'العرض والتغذية الراجعة', dur:'20 دق', tool:'Screen Share',   desc:''},
+  {name:'الإغلاق والتأمل',        dur:'10 دق', tool:'Padlet',         desc:''},
+];
+function buildPhases(){
+  const tbody=document.getElementById('phases-body');
+  tbody.innerHTML=DEFAULT_PHASES.map((p,i)=>`
+    <tr>
+      <td><input class="ph-input" value="${p.name}" placeholder="المرحلة"></td>
+      <td><input class="ph-input" value="${p.dur}" placeholder="المدة"></td>
+      <td><input class="ph-input" value="${p.tool}" placeholder="الأداة"></td>
+      <td><input class="ph-input" value="${p.desc}" placeholder="الوصف والتعليمات"></td>
+    </tr>
+  `).join('');
+  buildToolsCheck();
+}
+function addPhase(){
+  const tbody=document.getElementById('phases-body');
+  const tr=document.createElement('tr');
+  tr.innerHTML=`
+    <td><input class="ph-input" placeholder="اسم المرحلة"></td>
+    <td><input class="ph-input" placeholder="المدة"></td>
+    <td><input class="ph-input" placeholder="الأداة"></td>
+    <td><input class="ph-input" placeholder="الوصف"></td>
+  `;
+  tbody.appendChild(tr);
+}
+function removePhase(){
+  const tbody=document.getElementById('phases-body');
+  if(tbody.children.length>1) tbody.removeChild(tbody.lastChild);
+}
+const TOOLS_LIST=['Padlet','Mentimeter','Zoom Polls','Whiteboard','Breakout Rooms','Kahoot','Screen Share','Chat','Reactions'];
+function buildToolsCheck(){
+  const c=document.getElementById('tools-check');
+  c.innerHTML=TOOLS_LIST.map(t=>`<span class="pf-tag" onclick="this.classList.toggle('sel')">${t}</span>`).join('');
+}
+function generatePlan(){
+  const title=document.getElementById('lp_title').value||'غير محدد';
+  const value=document.getElementById('lp_value').value;
+  const audience=document.getElementById('lp_audience').value||'—';
+  const duration=document.getElementById('lp_duration').value;
+  const objectives=document.getElementById('lp_objectives').value||'—';
+  const reflection=document.getElementById('lp_reflection').value||'—';
+  const evalMethod=document.getElementById('lp_eval').value;
+  const success=document.getElementById('lp_success').value||'—';
+  const tools=[...document.querySelectorAll('#tools-check .sel')].map(el=>el.textContent).join(' | ')||'—';
+
+  const preview=document.getElementById('lp-preview');
+  document.getElementById('lp-preview-body').innerHTML=`
+    <div class="lp-preview-row">
+      <span class="lp-chip">📌 ${title}</span>
+      <span class="lp-chip">🌍 ${value}</span>
+      <span class="lp-chip">👥 ${audience}</span>
+      <span class="lp-chip">⏱️ ${duration}</span>
+    </div>
+    <p style="margin:.7rem 0 .4rem;font-size:.87rem;opacity:.85"><strong style="color:#FFE082">🎯 الأهداف:</strong> ${objectives.replace(/\n/g,'<br>')}</p>
+    <p style="margin:.4rem 0;font-size:.87rem;opacity:.85"><strong style="color:#FFE082">🛠️ الأدوات:</strong> ${tools}</p>
+    <p style="margin:.4rem 0;font-size:.87rem;opacity:.85"><strong style="color:#FFE082">❓ سؤال التأمل:</strong> ${reflection}</p>
+    <p style="margin:.4rem 0;font-size:.87rem;opacity:.85"><strong style="color:#FFE082">📊 التقييم:</strong> ${evalMethod} — ${success}</p>
+  `;
+  preview.classList.add('show');
+  preview.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function clearPlan(){
+  ['lp_title','lp_audience','lp_objectives','lp_reflection','lp_success'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+  buildPhases();
+  document.getElementById('lp-preview').classList.remove('show');
+}
+buildPhases();
+</script>
+</body>
+</html>
